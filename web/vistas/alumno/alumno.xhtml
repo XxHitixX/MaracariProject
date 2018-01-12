@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../../Plantilla/plantilla.xhtml">
+
+            <ui:define name="Titulo">
+                MATRICULA DE ESTIDIANTES
+            </ui:define>
+
+            <ui:define name="BotonVariable">
+                <h:button class="btn btn-mini btn-success" value="ACTUALIZAR"/>
+            </ui:define>
+
+            <ui:define name="Contenido">
+                <h:form id="formMatricula">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="NOMBRES"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.nombre}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="APELLIDOS"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.apellido}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="IDENTIFICACION"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.identificacion}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="FECHA DE NACIMIENTO"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.fechan}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="span6">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="COMUNIDAD"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.comunidad}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="ACUDIENTE"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.acudiente}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="TELEFONO"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.telefono}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span12">
+                            <div class="form-actions">
+                                <h:commandButton value="Enviar" actionListener="#{alumnoBean.insertarAlumno()}" class="btn btn-primary btn-large"/>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
