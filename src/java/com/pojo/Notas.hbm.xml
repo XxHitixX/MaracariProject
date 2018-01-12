@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/01/2018 12:21:12 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Notas" table="notas" catalog="maracari" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="alumnogrado" class="com.pojo.Alumnogrado" fetch="select">
+            <column name="idalumnogrado" />
+        </many-to-one>
+        <many-to-one name="materiaprofesor" class="com.pojo.Materiaprofesor" fetch="select">
+            <column name="idmateriaprofesor" />
+        </many-to-one>
+        <property name="periodoi" type="string">
+            <column name="periodoi" length="200" />
+        </property>
+        <property name="periodoii" type="string">
+            <column name="periodoii" length="200" />
+        </property>
+        <property name="periodoiii" type="string">
+            <column name="periodoiii" length="200" />
+        </property>
+        <property name="periodoiv" type="string">
+            <column name="periodoiv" length="200" />
+        </property>
+        <property name="definitiva" type="string">
+            <column name="definitiva" length="200" />
+        </property>
+        <property name="ano" type="string">
+            <column name="ano" length="200" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="200" />
+        </property>
+        <property name="registro" type="timestamp">
+            <column name="registro" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
