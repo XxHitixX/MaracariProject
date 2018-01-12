@@ -9,6 +9,7 @@ import com.Dao.AlumnoDao;
 import com.DaoImp.AlumnoDaoImp;
 import com.pojo.Alumno;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -26,6 +27,7 @@ public class AlumnoBean implements Serializable {
      * Creates a new instance of AlumnoBean
      */
     private Alumno alumno;
+    private List<Alumno> lista;
 
     public AlumnoBean() {
         this.alumno = new Alumno();
@@ -42,6 +44,22 @@ public class AlumnoBean implements Serializable {
         this.alumno = alumno;
     }
 
+    public List<Alumno> getLista() {
+        AlumnoDao aDao = new AlumnoDaoImp();
+        this.lista =  aDao.BuscarTodos();
+        return lista;
+    }
+
+    public void setLista(List<Alumno> lista) {
+        this.lista = lista;
+    }
+
+    
+    
+    
+    /*
+    Desde aqui comienzan los metodos de la clase AlumnoBean 
+     */
     public void insertar() {
         AlumnoDao aDao = new AlumnoDaoImp();
         try {

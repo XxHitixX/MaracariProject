@@ -9,7 +9,7 @@
         <ui:composition template="./../../Plantilla/plantilla.xhtml">
 
             <ui:define name="Titulo">
-                MATRICULA DE ESTIDIANTES
+                REGISTRO DE ESTUDIANTES
             </ui:define>
 
             <ui:define name="BotonVariable">
@@ -17,7 +17,8 @@
             </ui:define>
 
             <ui:define name="Contenido">
-                <h:messages globalOnly="true" />
+                <h:messages showDetail="true" globalOnly="true" showSummary="true"
+                             class="alert-success"/>
                 <h:form id="formMatricula">
                     <div class="row-fluid">
                         <div class="span6">
