@@ -46,7 +46,7 @@ public class AlumnoBean implements Serializable {
 
     public List<Alumno> getLista() {
         AlumnoDao aDao = new AlumnoDaoImp();
-        this.lista =  aDao.BuscarTodos();
+        this.lista = aDao.BuscarTodos();
         return lista;
     }
 
@@ -54,9 +54,6 @@ public class AlumnoBean implements Serializable {
         this.lista = lista;
     }
 
-    
-    
-    
     /*
     Desde aqui comienzan los metodos de la clase AlumnoBean 
      */
@@ -73,9 +70,18 @@ public class AlumnoBean implements Serializable {
             this.alumno = new Alumno();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-            "No se pudo agregar al estudiante"));
+                    "No se pudo agregar al estudiante"));
             this.alumno = new Alumno();
         }
     }
 
+    /*
+    public void redireccion() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/alumno/editar.xhtml");
+        } catch (Exception e) {
+            System.out.println("Esto no sirvio");
+        }
+    }
+*/
 }
