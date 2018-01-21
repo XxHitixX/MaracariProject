@@ -75,13 +75,41 @@ public class AlumnoBean implements Serializable {
         }
     }
 
-    /*
+    public void actualizar() {
+        AlumnoDao aDao = new AlumnoDaoImp();
+        try {
+            aDao.editar(this.alumno);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Bien!!", "Alumno actualizado"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/alumno/index.xhtml");
+            this.alumno = new Alumno();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se ha podido actualizar el alumno"));
+            this.alumno = new Alumno();
+        }
+
+    }
+
+    public void eliminar() {
+        AlumnoDao aDao = new AlumnoDaoImp();
+        try {
+            aDao.eliminar(this.alumno);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Bien!!", "Alumno eliminado"));
+            this.alumno = new Alumno();
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/alumno/index.xhtml");
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se pudo eliminar el alumno"));
+            this.alumno = new Alumno();
+        }
+       
+    }
+
+    
     public void redireccion() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/alumno/editar.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/alumno/index.xhtml");
         } catch (Exception e) {
             System.out.println("Esto no sirvio");
         }
     }
-*/
+    
 }

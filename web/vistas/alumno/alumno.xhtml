@@ -26,7 +26,8 @@
                                 <div class="control-group">
                                     <h:outputLabel class="control-label" value="NOMBRES"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.nombre}"/>
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.nombre}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +36,8 @@
                                 <div class="control-group">
                                     <h:outputLabel class="control-label" value="APELLIDOS"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.apellido}"/>
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.apellido}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +66,8 @@
                                 <div class="control-group">
                                     <h:outputLabel class="control-label" value="COMUNIDAD"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.comunidad}"/>
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.comunidad}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +76,8 @@
                                 <div class="control-group">
                                     <h:outputLabel class="control-label" value="ACUDIENTE"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.acudiente}" />
+                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.acudiente}" 
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
