@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -19,74 +20,130 @@
 
             <ui:define name="Contenido">
                 <h:form>
+                    <div class="row-fluid">
+                        <div class="span12">
 
-                    <h:dataTable var="t" value="#{alumnoBean.lista}" rows="20" title="LISTA DE ESTUDIANTES" 
-                                 class="table table-hover">
-                        <h:column>
-                            <f:facet name="header">ID</f:facet>
-                                #{t.id}
-                        </h:column>
+                            <!--
+                                                        <h:dataTable id="tbl" var="t" value="#{alumnoBean.lista}" title="LISTA DE ESTUDIANTES" 
+                                                                     class="table table-hover table-bordered">
+                                                            <h:column class="text-center">
+                                                                <f:facet name="header">ID</f:facet>
+                            #{t.id}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">NOMBRE</f:facet>
-                                #{t.nombre} #{t.apellido}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">NOMBRE</f:facet>
+                            #{t.nombre} #{t.apellido}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">IDENTIFICACION</f:facet>
-                                #{t.identificacion}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">IDENTIFICACION</f:facet>
+                            #{t.identificacion}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">FECHA DE NACIMIENTO</f:facet>
-                                #{t.fechan}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">FECHA DE NACIMIENTO</f:facet>
+                            #{t.fechan}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">COMUNIDAD</f:facet>
-                                #{t.comunidad}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">COMUNIDAD</f:facet>
+                            #{t.comunidad}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">ACUDIENTE</f:facet>
-                                #{t.acudiente}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">ACUDIENTE</f:facet>
+                            #{t.acudiente}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">TELEFONO</f:facet>
-                                #{t.telefono}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">TELEFONO</f:facet>
+                            #{t.telefono}
+                    </h:column>
 
-                        <h:column>
-                            <f:facet name="header">ACCIONES</f:facet>
-                            <h:link outcome="/vistas/alumno/eliminar" class="btn btn-mini btn-danger"> <i class="icon-remove"></i>
-                                <f:param name="id" value="#{t.id}"/>
-                                <f:param name="nombre" value="#{t.nombre}"/>
-                                <f:param name="apellido" value="#{t.apellido}"/>
-                                <f:param name="identificacion" value="#{t.identificacion}"/>
-                                <f:param name="fechan" value="#{t.fechan}"/>
-                                <f:param name="comunidad" value="#{t.comunidad}"/>
-                                <f:param name="acudiente" value="#{t.acudiente}"/>
-                                <f:param name="telefono" value="#{t.telefono}"/>
-                            </h:link>
-                            <h:link outcome="/vistas/alumno/editar" class="btn btn-mini btn-warning"> <i class="icon-pencil"></i>
-                                <f:param name="id" value="#{t.id}"/>
-                                <f:param name="nombre" value="#{t.nombre}"/>
-                                <f:param name="apellido" value="#{t.apellido}"/>
-                                <f:param name="identificacion" value="#{t.identificacion}"/>
-                                <f:param name="fechan" value="#{t.fechan}"/>
-                                <f:param name="comunidad" value="#{t.comunidad}"/>
-                                <f:param name="acudiente" value="#{t.acudiente}"/>
-                                <f:param name="telefono" value="#{t.telefono}"/>
-                            </h:link>
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">ACCIONES</f:facet>
+                        <h:link outcome="/vistas/alumno/eliminar" class="btn btn-mini btn-danger"> <i class="icon-remove"></i>
+                            <f:param name="id" value="#{t.id}"/>
+                            <f:param name="nombre" value="#{t.nombre}"/>
+                            <f:param name="apellido" value="#{t.apellido}"/>
+                            <f:param name="identificacion" value="#{t.identificacion}"/>
+                            <f:param name="fechan" value="#{t.fechan}"/>
+                            <f:param name="comunidad" value="#{t.comunidad}"/>
+                            <f:param name="acudiente" value="#{t.acudiente}"/>
+                            <f:param name="telefono" value="#{t.telefono}"/>
+                        </h:link>
+                        <h:link outcome="/vistas/alumno/editar" class="btn btn-mini btn-warning"> <i class="icon-pencil"></i>
+                            <f:param name="id" value="#{t.id}"/>
+                            <f:param name="nombre" value="#{t.nombre}"/>
+                            <f:param name="apellido" value="#{t.apellido}"/>
+                            <f:param name="identificacion" value="#{t.identificacion}"/>
+                            <f:param name="fechan" value="#{t.fechan}"/>
+                            <f:param name="comunidad" value="#{t.comunidad}"/>
+                            <f:param name="acudiente" value="#{t.acudiente}"/>
+                            <f:param name="telefono" value="#{t.telefono}"/>
+                        </h:link>
+                    </h:column>
 
-                    </h:dataTable>
+                </h:dataTable>
 
+                            -->
+
+                            <p:dataTable value="#{alumnoBean.lista}" var="t" rows="10"  paginator="true" 
+                                          class="table table-striped">
+                                <p:column headerText="ID" style="width: 20px; text-align: center;">
+                                    <h:outputLabel value="#{t.id}"/>
+                                </p:column>
+                                <p:column headerText="NOMBRE">
+                                    <h:outputLabel value="#{t.nombre} #{t.apellido}"/>
+                                </p:column>
+                                <p:column headerText="IDENTIFICACION" style="width: 10%; text-align: center;">
+                                    <h:outputLabel value="#{t.identificacion}" />
+                                </p:column>
+                                <p:column headerText="FECHA DE NACIMIENTO" style="width: 10%; text-align: center;">
+                                    <h:outputLabel value="#{t.fechan}"/>
+                                </p:column>
+                                <p:column headerText="COMUNIDAD">
+                                    <h:outputLabel value="#{t.comunidad}"/>
+                                </p:column>
+                                <p:column headerText="ACUDIENTE">
+                                    <h:outputLabel value="#{t.acudiente}"/>
+                                </p:column>
+                                <p:column headerText="TELEFONO">
+                                    <h:outputLabel value="#{t.telefono}" style="text-align: center;"/>
+                                </p:column>
+                                <p:column headerText="ACCIONES" style="text-align: center;">
+                                    <h:link outcome="/vistas/alumno/eliminar" class="btn btn-mini btn-danger"> <i class="icon-remove"></i>
+                                        <f:param name="id" value="#{t.id}"/>
+                                        <f:param name="nombre" value="#{t.nombre}"/>
+                                        <f:param name="apellido" value="#{t.apellido}"/>
+                                        <f:param name="identificacion" value="#{t.identificacion}"/>
+                                        <f:param name="fechan" value="#{t.fechan}"/>
+                                        <f:param name="comunidad" value="#{t.comunidad}"/>
+                                        <f:param name="acudiente" value="#{t.acudiente}"/>
+                                        <f:param name="telefono" value="#{t.telefono}"/>
+                                    </h:link> 
+                                    <h:link outcome="/vistas/alumno/editar" value=" " class="btn btn-mini btn-warning"> <i class="icon-pencil"></i>
+                                        <f:param name="id" value="#{t.id}"/>
+                                        <f:param name="nombre" value="#{t.nombre}"/>
+                                        <f:param name="apellido" value="#{t.apellido}"/>
+                                        <f:param name="identificacion" value="#{t.identificacion}"/>
+                                        <f:param name="fechan" value="#{t.fechan}"/>
+                                        <f:param name="comunidad" value="#{t.comunidad}"/>
+                                        <f:param name="acudiente" value="#{t.acudiente}"/>
+                                        <f:param name="telefono" value="#{t.telefono}"/>
+                                    </h:link>
+                                </p:column>
+
+                            </p:dataTable>
+                        </div>
+                    </div>
                 </h:form>
             </ui:define>
 
         </ui:composition>
+
+
 
     </body>
 </html>

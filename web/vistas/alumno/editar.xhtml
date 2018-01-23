@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -79,8 +80,7 @@
                                 <div class="control-group">
                                     <h:outputLabel class="control-label" value="FECHA DE NACIMIENTO"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.fechan}"
-                                                      onkeyup="javascript:this.value=this.value.toUpperCase();"/>
+                                        <p:inputMask mask="99/99/9999" value="${alumnoBean.alumno.fechan}"/>
                                     </div>
                                 </div>
                             </div>
