@@ -10,94 +10,108 @@
         <ui:composition template="./../../Plantilla/plantilla.xhtml">
 
             <ui:define name="Titulo">
-                REGISTRO DE ESTUDIANTES
+                REGISTRO DE PROFESORES
             </ui:define>
 
             <ui:define name="BotonVariable">
-                <h:button class="btn btn-mini btn-success" value="ACTUALIZAR"/>
             </ui:define>
 
             <ui:define name="Contenido">
                 <h:messages showDetail="true" globalOnly="true" showSummary="true"
                              class="alert-success"/>
-                <h:form id="formMatricula">
+                <h:form>
                     <div class="row-fluid">
                         <div class="span6">
-                            <div class="form-horizontal">
-                                <div class="control-group">
-                                    <h:outputLabel class="control-label" value="NOMBRES"/>
-                                    <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.nombre}"
-                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-horizontal">
                                 <div class="control-group">
-                                    <h:outputLabel class="control-label" value="APELLIDOS"/>
+                                    <h:outputLabel value="NOMBRES:" class="control-label"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.apellido}"
-                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.nombre}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="form-horizontal">
                                 <div class="control-group">
-                                    <h:outputLabel class="control-label" value="IDENTIFICACION"/>
+                                    <h:outputLabel value="APELLIDOS:" class="control-label"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.identificacion}"/>
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.apellido}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="form-horizontal">
                                 <div class="control-group">
-                                    <h:outputLabel class="control-label" value="FECHA DE NACIMIENTO"/>
+                                    <h:outputLabel value="FECHA DE NACIMIENTO:" class="control-label"/>
                                     <div class="controls">
-                                        <p:inputMask mask="99/99/9999" placeholder="dd/MM/AAAA" value="#{alumnoBean.alumno.fechan}" />
+                                        <p:inputMask class="span12" value="#{profesorBean.profesor.fechan}" mask="99/99/9999"/>
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel value="DEPARTAMENTO:" class="control-label"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.departamento}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel value="CIUDAD:" class="control-label"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.ciudad}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="span6">
+                            
                             <div class="form-horizontal">
                                 <div class="control-group">
-                                    <h:outputLabel class="control-label" value="COMUNIDAD"/>
+                                    <h:outputLabel value="DIRECCION:" class="control-label"/>
                                     <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.comunidad}"
-                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.direccion}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel value="TELEFONO:" class="control-label"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.telefono}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel value="EMAIL:" class="control-label"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" value="#{profesorBean.profesor.email}"
+                                                     onkeyup="javascript: this.value=this.value.toUpperCase();"/>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-horizontal">
-                                <div class="control-group">
-                                    <h:outputLabel class="control-label" value="ACUDIENTE"/>
-                                    <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.acudiente}" 
-                                                     onkeyup="javascript:this.value=this.value.toUpperCase();"/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-horizontal">
-                                <div class="control-group">
-                                    <h:outputLabel class="control-label" value="TELEFONO"/>
-                                    <div class="controls">
-                                        <h:inputText class="span12" required="true" value="#{alumnoBean.alumno.telefono}"/>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
+                        
                         <div class="span12">
                             <div align="center" class="form-actions">
-                                <h:commandButton value="REGISTRAR" actionListener="#{alumnoBean.insertar()}" class="btn btn-primary btn-large"/>
+                                <h:commandButton value="REGISTRAR" actionListener="#{profesorBean.insertar()}"  class="btn btn-primary btn-large"/>
                             </div>
                         </div>
+
                     </div>
                 </h:form>
             </ui:define>
