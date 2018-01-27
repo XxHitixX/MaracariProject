@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../Plantilla/plantilla.xhtml">
+
+            <ui:define name="Titulo">
+                ASIGNACIONES DOCENTE - MATERIA 
+            </ui:define>
+
+            <ui:define name="BotonVariable">
+                <h:link value="NUEVA ASIGNACION" outcome="/vistas/asigdocente/crear" class="btn btn-success btn-mini"/>
+            </ui:define>
+
+            <ui:define name="Contenido">
+                <h:form>
+                    <div class="row-fluid">
+                        <div class="span12">
+
+                            <p:dataTable value="#{materiaProfesorBean.lista}" var="t" rows="10" paginator="true"
+                                         class="table table-bordered table-striped">
+                                <p:column headerText="ID" style="width: 20px">
+                                    #{t.id}
+                                </p:column>
+                                
+                                <p:column headerText="MATERIA">
+                                    #{t.materia.nombre}
+                                </p:column>
+                                
+                                <p:column headerText="PROFESOR">
+                                    #{t.profesor.nombre}
+                                </p:column>
+                                
+                                <p:column headerText="AÑO">
+                                    #{t.ano}
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

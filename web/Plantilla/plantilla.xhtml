@@ -55,7 +55,7 @@
                  <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>-->
                 <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Asiganciones</span> <span class="label label-important">2</span></a>
                     <ul>
-                        <li><h:link value="Docente"/></li>
+                        <li><h:link outcome="/vistas/asigdocente/index" value="Docente"/></li>
                         <li><h:link value="Estudiante"/></li>
 
                     </ul>
@@ -66,8 +66,8 @@
                     <ul>
                         <li><h:link value="Usuarios"/></li>
                         <li><h:link value="Docente" outcome="/vistas/profesor/index"/></li>
-                        <li><h:link value="Grado"/></li>
-                        <li><h:link value="Asignatura"/></li>
+                        <li><h:link outcome="/vistas/grado/index" value="Grado"/></li>
+                        <li><h:link outcome="/vistas/materia/index" value="Asignatura"/></li>
                         <!--       <li><a href="gallery.html">Gallery</a></li>
                                <li><a href="calendar.html">Calendar</a></li>
                                <li><a href="chat.html">Chat option</a></li> -->
@@ -84,7 +84,7 @@
             <div class="container-fluid">
                 <div class="quick-actions_homepage">
                     <ul class="quick-actions">
-                        <li> <a href="#"> <i class="icon-dashboard"></i> Asig. Docente </a> </li>
+                        <li> <h:link outcome="/vistas/asigdocente/index"> <i class="icon-dashboard"></i> Asig. Docente</h:link></li>
                         <li> <a href="#"> <i class="icon-shopping-bag"></i> Matricula</a> </li>
                         <li> <a href="#"> <i class="icon-web"></i> List. Alumno </a> </li>
                         <!--   <li> <a href="#"> <i class="icon-people"></i> Manage Users </a> </li>

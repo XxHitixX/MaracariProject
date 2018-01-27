@@ -5,11 +5,10 @@
  */
 package com.DaoImp;
 
-import com.Dao.AlumnoDao;
+import com.Dao.GradoDao;
 import com.Util.HibernateUtil;
-import com.pojo.Alumno;
+import com.pojo.Grado;
 import java.util.List;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -17,14 +16,14 @@ import org.hibernate.Transaction;
  *
  * @author Ana Sofia
  */
-public class AlumnoDaoImp implements AlumnoDao {
+public class GradoDaoImp implements GradoDao {
 
     @Override
-    public List<Alumno> BuscarTodos() {
-        List<Alumno> lista = null;
+    public List<Grado> BuscarTodos() {
+        List<Grado> lista = null;
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
-        String hql = "FROM Alumno";
+        String hql = "FROM Grado";
 
         try {
             lista = sesion.createQuery(hql).list();
@@ -37,13 +36,13 @@ public class AlumnoDaoImp implements AlumnoDao {
     }
 
     @Override
-    public void crear(Alumno alumno) {
+    public void crear(Grado g) {
         Session sesion = null;
 
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.save(alumno);
+            sesion.save(g);
             sesion.getTransaction().commit();
 
         } catch (Exception e) {
@@ -52,45 +51,33 @@ public class AlumnoDaoImp implements AlumnoDao {
     }
 
     @Override
-    public void editar(Alumno alumno) {
+    public void editar(Grado g) {
         Session sesion = null;
 
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.update(alumno);
+            sesion.update(g);
             sesion.getTransaction().commit();
 
         } catch (Exception e) {
-            System.out.println("" + e.getMessage());
             sesion.getTransaction().rollback();
         }
     }
 
     @Override
-    public void eliminar(Alumno alumno) {
+    public void eliminar(Grado g) {
         Session sesion = null;
 
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            sesion.delete(alumno);
+            sesion.delete(g);
             sesion.getTransaction().commit();
 
         } catch (Exception e) {
-            System.out.println("" + e.getMessage());
             sesion.getTransaction().rollback();
         }
-    }
-
-    @Override
-    public Alumno BuscarID(Integer id) {
-        String hql = "FROM Alumno WHERE id = :id";
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query q = session.createQuery(hql);
-        q.setParameter("id", id);
-
-        return (Alumno) q.uniqueResult();
     }
 
 }
