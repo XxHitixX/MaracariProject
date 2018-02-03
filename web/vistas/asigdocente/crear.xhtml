@@ -25,21 +25,24 @@
                             <!-- Parte izquierda Materias-->
                             <div class="span6">
                                 <h:outputLabel value="SELECCIONA UNA MATERIA" class="text-info"/>
-                                <p:selectOneMenu value="#{materiaProfesorBean.materiaprofesor.materia}">
+                                <h:selectOneMenu value="#{materiaProfesorBean.materiaprofesor.materia}">
                                     <f:selectItems value="#{materiaBean.lista}" var="t" itemLabel="#{t.nombre}" itemValue="#{t.id}"/>
-                                </p:selectOneMenu>
+                                </h:selectOneMenu>
                             </div>
-
-
+                            
                             <!-- Parte Derecha Profesores-->
                             <div class="span6">
 
                                 <h:outputLabel value="SELECCIONA UN PROFESOR" class="text-info"/>
-                                <p:selectOneMenu value="#{materiaProfesorBean.materiaprofesor.profesor}">
-                                    <f:selectItems value="#{profesorBean.lista}" var="p" itemLabel="#{p.nombre}" itemValue="#{p.id}"/>
-                                </p:selectOneMenu>
+                                <h:selectOneMenu value="#{materiaProfesorBean.materiaprofesor.profesor}">
+                                    <f:selectItems value="#{profesorBean.lista}" var="p" itemLabel="#{p.nombre} #{p.apellido}" itemValue="#{p.id}"/>
+                                </h:selectOneMenu>
 
                             </div>
+                        </div>
+                        <div class="span10" align="center">
+                            <h:commandButton value="ASIGNAR" class="btn btn-success btn-large" 
+                                             actionListener="#{materiaProfesorBean.insertar()}"/>
                         </div>
                     </div>
                 </h:form>

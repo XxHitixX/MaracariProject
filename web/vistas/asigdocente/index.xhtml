@@ -28,15 +28,15 @@
                                     #{t.id}
                                 </p:column>
                                 
-                                <p:column headerText="MATERIA">
+                                <p:column headerText="MATERIA" filterBy="#{t.materia.nombre}">
                                     #{t.materia.nombre}
                                 </p:column>
                                 
-                                <p:column headerText="PROFESOR">
-                                    #{t.profesor.nombre}
+                                <p:column headerText="PROFESOR" filterBy="#{t.profesor.nombre}">
+                                    #{t.profesor.nombre} #{t.profesor.apellido}
                                 </p:column>
                                 
-                                <p:column headerText="AÑO">
+                                <p:column headerText="AÑO" filterBy="#{t.ano}">
                                     #{t.ano}
                                 </p:column>
                             </p:dataTable>

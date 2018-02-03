@@ -7,9 +7,13 @@ package bean;
 
 import com.Dao.MateriaProfesorDao;
 import com.DaoImp.MateriaProfesorDaoImp;
+import com.pojo.Materia;
 import com.pojo.Materiaprofesor;
+import com.pojo.Profesor;
 import java.io.Serializable;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -30,6 +34,7 @@ public class MateriaProfesorBean implements Serializable{
     
     public MateriaProfesorBean() {
         this.materiaprofesor = new Materiaprofesor();
+    
     }
     
     /*
@@ -53,7 +58,21 @@ public class MateriaProfesorBean implements Serializable{
     public void setMateriaprofesor(Materiaprofesor materiaprofesor) {
         this.materiaprofesor = materiaprofesor;
     }
+
     
     
+    /*
+    En esta parte van los metodos que se van a realizar
+    */
+    public void insertar(){
+        MateriaProfesorDao mpDao = new MateriaProfesorDaoImp();
+        try {
+            mpDao.insertar(this.materiaprofesor);
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/asigdocente/index.xhtml");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Exito!", "SE HA ASIGNADO UNA MATERIA A UN DOCENTE"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"ERROR!", "NO SE HA ASIGNADO UNA MATERIA A UN DOCENTE"));
+        }
+    }
     
 }
