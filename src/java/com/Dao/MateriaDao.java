@@ -22,5 +22,7 @@ public interface MateriaDao {
     public void editar(Materia p);
 
     public void eliminar(Materia p);
+    
+    public Materia BuscarID(Integer id);
 
 }

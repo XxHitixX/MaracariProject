@@ -9,6 +9,7 @@ import com.Dao.MateriaDao;
 import com.Util.HibernateUtil;
 import com.pojo.Materia;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -78,6 +79,16 @@ public class MateriaDaoImp implements MateriaDao {
         } catch (Exception e) {
             session.getTransaction().rollback();
         }
+    }
+
+    @Override
+    public Materia BuscarID(Integer id) {
+        String hql = "FROM Materia WHERE id = :id";
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query q = session.createQuery(hql);
+        q.setParameter("id", id);
+        
+        return (Materia) q.uniqueResult();
     }
 
 }

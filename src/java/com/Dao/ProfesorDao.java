@@ -5,7 +5,6 @@
  */
 package com.Dao;
 
-import com.pojo.Alumno;
 import com.pojo.Profesor;
 import java.util.List;
 
@@ -23,5 +22,5 @@ public interface ProfesorDao {
 
     public void eliminar(Profesor p);
 
-    public Alumno BuscarID(Integer id);
+    public Profesor BuscarID(Integer id);
 }

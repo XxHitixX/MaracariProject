@@ -10,6 +10,7 @@ import com.Util.HibernateUtil;
 import com.pojo.Alumno;
 import com.pojo.Profesor;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -80,8 +81,13 @@ public class ProfesorDaoImp implements ProfesorDao{
     }
 
     @Override
-    public Alumno BuscarID(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Profesor BuscarID(Integer id) {
+         String hql = "FROM Profesor WHERE id = :id";
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query q = session.createQuery(hql);
+        q.setParameter("id", id);
+
+        return (Profesor) q.uniqueResult();
     }
     
 }
