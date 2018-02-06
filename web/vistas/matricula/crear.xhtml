@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../Plantilla/plantilla.xhtml">
+
+            <ui:define name="Titulo">
+                Matricula de estudiante
+            </ui:define>
+
+            <ui:define name="BotonVariable">
+                <h:link value="ACTUALIZAR" class="btn btn-success btn-mini"/>
+            </ui:define>
+
+            <ui:define name="Contenido">
+                <h:form>
+                    <div class="row-fluid">
+                        <div class="span8 offset2">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="NOMBRES"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.nombre}"
+                                                     onkeyup="javascript:this.value = this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="APELLIDOS"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.apellido}"
+                                                     onkeyup="javascript:this.value = this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="IDENTIFICACION"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.identificacion}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="FECHA DE NACIMIENTO"/>
+                                    <div class="controls">
+                                        <p:inputMask mask="99/99/9999" placeholder="dd/MM/AAAA" value="#{matriculaBean.alumno.fechan}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="COMUNIDAD"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.comunidad}"
+                                                     onkeyup="javascript:this.value = this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="ACUDIENTE"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.acudiente}" 
+                                                     onkeyup="javascript:this.value = this.value.toUpperCase();"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="TELEFONO"/>
+                                    <div class="controls">
+                                        <h:inputText class="span12" required="true" value="#{matriculaBean.alumno.telefono}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="EN QUE GRADO LO VAS A MATRICULAR?"/>
+                                </div>
+                                <div class="controls">
+                                    <h:selectOneMenu label="#{matriculaBean.IDgrado}">
+                                        <f:selectItems var="t" value="#{materiaBean.lista}" itemLabel="#{t.nombre}"
+                                                       itemValue="#{t.id}"/>
+                                    </h:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span12">
+                            <div align="center" class="form-actions">
+                                <h:commandButton value="MATRICULAR" actionListener="#{matriculaBean.insertar()}" class="btn btn-primary btn-large"/>
+                            </div>
+                        </div>
+                    </div> 
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

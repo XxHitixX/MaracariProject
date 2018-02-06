@@ -49,7 +49,7 @@
         <!--close-top-Header-menu-->
         <div id="sidebar"><h:link outcome="/index" class="visible-phone"><i class="icon icon-home"></i> Dashboard</h:link><ul>
                 <li class="active"><h:link outcome="/index"><i class="icon icon-home"></i> <span>Inicio</span></h:link> </li>
-                <li><h:link ><i class="icon icon-signal"></i> <span>Matricular</span></h:link> </li>
+                <li><h:link outcome="/vistas/matricula/crear"><i class="icon icon-signal"></i> <span>Matricular</span></h:link> </li>
                 <!-- <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
                  <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
                  <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>-->
@@ -85,8 +85,8 @@
                 <div class="quick-actions_homepage">
                     <ul class="quick-actions">
                         <li> <h:link outcome="/vistas/asigdocente/index"> <i class="icon-dashboard"></i> Asig. Docente</h:link></li>
-                        <li> <a href="#"> <i class="icon-shopping-bag"></i> Matricula</a> </li>
-                        <li> <a href="#"> <i class="icon-web"></i> List. Alumno </a> </li>
+                        <li> <h:link outcome="/vistas/matricula/crear"> <i class="icon-shopping-bag"></i> Matricula</h:link></li>
+                        <li> <h:link outcome="/vistas/alumno/index"><i class="icon-web"></i> List. Alumno </h:link></li>
                         <!--   <li> <a href="#"> <i class="icon-people"></i> Manage Users </a> </li>
                            <li> <a href="#"> <i class="icon-calendar"></i> Manage Events </a> </li>-->
                     </ul>

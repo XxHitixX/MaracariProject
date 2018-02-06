@@ -9,6 +9,7 @@ import com.Dao.GradoDao;
 import com.Util.HibernateUtil;
 import com.pojo.Grado;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -80,4 +81,15 @@ public class GradoDaoImp implements GradoDao {
         }
     }
 
+    @Override
+    public Grado BuscarID(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "FROM Grado WHERE id = :id";
+        Query q = session.createQuery(hql);
+        q.setParameter("id", id);
+        
+        return (Grado) q.uniqueResult();
+    }
+    
+    
 }

@@ -5,23 +5,21 @@
  */
 package com.Dao;
 
-import com.pojo.Grado;
+import com.pojo.Alumnogrado;
 import java.util.List;
 
 /**
  *
  * @author Ana Sofia
  */
-public interface GradoDao {
+public interface GradoAlumnoDao {
     
-     public List<Grado> BuscarTodos();
-
-    public void crear(Grado g);
-
-    public void editar(Grado g);
-
-    public void eliminar(Grado g);
+    public List<Alumnogrado> BuscarTodos();
     
-    public Grado BuscarID(int id);
-
+    public void insertar(Alumnogrado a);
+    
+    public void editar(Alumnogrado a);
+    
+    public void elimiar(Alumnogrado a);
+    
 }
