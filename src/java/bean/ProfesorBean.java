@@ -11,9 +11,11 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import com.pojo.Profesor;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 
 /**
  *
@@ -28,6 +30,9 @@ public class ProfesorBean implements Serializable {
      */
     private List<Profesor> lista;
     private Profesor profesor;
+    private String codPais;
+    private String codCiudad;
+    private List<String> lstCiudad = new ArrayList<String>();
 
     public ProfesorBean() {
         this.profesor = new Profesor();
@@ -53,6 +58,32 @@ public class ProfesorBean implements Serializable {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
+
+    public String getCodPais() {
+        return codPais;
+    }
+
+    public void setCodPais(String codPais) {
+        this.codPais = codPais;
+    }
+
+    public String getCodCiudad() {
+        return codCiudad;
+    }
+
+    public void setCodCiudad(String codCiudad) {
+        this.codCiudad = codCiudad;
+    }
+
+    public List<String> getLstCiudad() {
+        return lstCiudad;
+    }
+
+    public void setLstCiudad(List<String> lstCiudad) {
+        this.lstCiudad = lstCiudad;
+    }
+    
+    
 
     /*
     A continuacion los metodos 
@@ -103,6 +134,41 @@ public class ProfesorBean implements Serializable {
     public void redireccion() throws Exception{
         
         FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/profesor/index.xhtml");
+    }
+    
+    public void cargarCiudades(AjaxBehaviorEvent event){
+        switch(codPais){
+        
+            case "1":
+                lstCiudad.add("Manaure");
+                lstCiudad.add("Riohacha");
+                lstCiudad.add("Albania");
+                lstCiudad.add("Uribia");
+                lstCiudad.add("Urumita");
+                lstCiudad.add("Maicao");
+                lstCiudad.add("Hato nuevo");
+                lstCiudad.add("Barrancas");
+                lstCiudad.add("Distraccion");
+                lstCiudad.add("Fonseca");
+                lstCiudad.add("San Juan");
+                lstCiudad.add("El molino");
+                lstCiudad.add("La jagua del pilar");
+                lstCiudad.add("Villa nueva");
+                break;
+                
+            case "2":
+                lstCiudad.add("Valledupa");
+                break;
+                
+            case "3":
+                lstCiudad.add("Santa Marta");
+                break;
+            
+            case "4":
+                lstCiudad.add("Barranquilla");
+                break;
+        
+        }
     }
 
 }

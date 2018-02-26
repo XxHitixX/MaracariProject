@@ -6,17 +6,18 @@
 package bean;
 
 import com.Dao.AlumnoDao;
-import com.Dao.GradoAlumnoDao;
 import com.Dao.GradoDao;
 import com.DaoImp.AlumnoDaoImp;
-import com.DaoImp.GradoAlumnoDaoImp;
+import com.DaoImp.AlumnoGradoDaoImp;
 import com.DaoImp.GradoDaoImp;
 import com.pojo.Alumno;
 import com.pojo.Alumnogrado;
+import com.pojo.Grado;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import com.Dao.AlumnoGradoDao;
 
 /**
  *
@@ -64,12 +65,13 @@ public class MatriculaBean implements Serializable{
     public void insertar(){
         AlumnoDao aDao = new AlumnoDaoImp();
         GradoDao gDao = new GradoDaoImp();
-        GradoAlumnoDao gaDao = new GradoAlumnoDaoImp();
+        AlumnoGradoDao gaDao = new AlumnoGradoDaoImp();
         Calendar c = Calendar.getInstance();
         Integer año = c.get(Calendar.YEAR);
         
         aDao.crear(this.alumno);
-        this.alumnogrado.setGrado(gDao.BuscarID(IDgrado));
+        Grado g = gDao.BuscarID(IDgrado);
+        this.alumnogrado.setGrado(g);
         this.alumnogrado.setAlumno(this.alumno);
         this.alumnogrado.setAno(año);
         

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../Plantilla/plantilla.xhtml">
+
+            <ui:define name="Titulo">
+                CREAR NUEVA ASIGNACION DE ALUMNO A GRADO
+            </ui:define>
+
+            <ui:define name="BotonVariable">
+                <h:link value="CANCELAR" class="btn btn-mini btn-success"/>
+            </ui:define>
+
+            <ui:define name="Contenido">
+                <h:messages showSummary="true" showDetail="true" globalOnly="true" class="alert-success"/>
+                <h:form>
+                    <div class="row-fluid">
+                        <div class="offset2 span10">
+                            <div class="span6">
+                                <h:outputLabel value="SELECCIONA UN GRADO" class="text-info"/>
+                                <h:selectOneMenu value="#{alumnoGradoBean.IDGrado}">
+                                    <f:selectItems var="t" value="#{gradoBean.lista}" itemLabel="#{t.nombre}" 
+                                                   itemValue="#{t.id}"/>                            
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="span6">
+                                <h:outputLabel value="SELECCIONA A UN ALUMNO" class="text-info"/>
+                                <h:selectOneMenu value="#{alumnoGradoBean.IDAlumno}" >
+                                    <f:selectItems var="t" value="#{alumnoBean.lista}" itemLabel="#{t.nombre} #{t.apellido}"
+                                                   itemValue="#{t.id}"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="span10" align="center">
+                            <h:commandButton class="btn btn-primary btn-large" value="ASIGNAR" actionListener="#{alumnoGradoBean.insertar()}"/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

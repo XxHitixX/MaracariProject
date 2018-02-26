@@ -82,7 +82,7 @@ public class GradoDaoImp implements GradoDao {
     }
 
     @Override
-    public Grado BuscarID(int id) {
+    public Grado BuscarID(Integer id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         String hql = "FROM Grado WHERE id = :id";
         Query q = session.createQuery(hql);

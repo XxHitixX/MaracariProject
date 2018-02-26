@@ -10,29 +10,27 @@ import com.pojo.Alumnogrado;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.Dao.GradoAlumnoDao;
+import com.Dao.AlumnoGradoDao;
 
 /**
  *
  * @author Ana Sofia
  */
-public class GradoAlumnoDaoImp implements GradoAlumnoDao {
+public class AlumnoGradoDaoImp implements AlumnoGradoDao {
 
     @Override
     public List<Alumnogrado> BuscarTodos() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction t = session.beginTransaction();
-        String hql = "FROM Alumnogrado";
         List<Alumnogrado> lista = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = sesion.beginTransaction();
+        String hql = "FROM Alumnogrado";
 
         try {
-            lista = session.createQuery(hql).list();
+            lista = sesion.createQuery(hql).list();
             t.commit();
-            session.close();
         } catch (Exception e) {
-            t.rollback();
+             t.rollback();
         }
-        
         return lista;
     }
 

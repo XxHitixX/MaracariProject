@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -58,6 +59,14 @@
                                     <div class="controls">
                                         <h:inputText class="span12" value="#{profesorBean.profesor.departamento}"
                                                      onkeyup="javascript: this.value=this.value.toUpperCase();"/>
+                                       <!-- <h:selectOneMenu value="#{profesorBean.codPais}">
+                                            <f:selectItem itemLabel="La Guajira" itemValue="1"/>
+                                            <f:selectItem itemLabel="Cesar" itemValue="2"/>
+                                            <f:selectItem itemLabel="Magdalena" itemValue="3"/>
+                                            <f:selectItem itemLabel="Atlantico" itemValue="4"/>
+                                            <f:ajax event="change" execute="@this" listener="#{profesorBean.cargarCiudades}" 
+                                                    render="cboCiudad"/>
+                                        </h:selectOneMenu>-->
                                     </div>
                                 </div>
                             </div>
@@ -68,6 +77,9 @@
                                     <div class="controls">
                                         <h:inputText class="span12" value="#{profesorBean.profesor.ciudad}"
                                                      onkeyup="javascript: this.value=this.value.toUpperCase();"/>
+                                     <!--   <h:selectOneMenu id="cboCiudad" value="#{profesorBean.codCiudad}">
+                                            <f:selectItems value="#{profesorBean.lstCiudad}"/>
+                                        </h:selectOneMenu>-->
                                     </div>
                                 </div>
                             </div>

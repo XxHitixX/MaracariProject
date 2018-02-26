@@ -47,8 +47,8 @@ Contributor(s):
     <property name="hibernate.connection.username">ponchito</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.current_session_context_class">jta</property>
     <property name="hibernate.connection.password">DILLan06</property>
+    <property name="hibernate.current_session_context_class">jta</property>
     <mapping resource="com/pojo/Materia.hbm.xml"/>
     <mapping resource="com/pojo/Notas.hbm.xml"/>
     <mapping resource="com/pojo/Alumnogrado.hbm.xml"/>

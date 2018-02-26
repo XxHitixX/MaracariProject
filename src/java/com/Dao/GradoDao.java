@@ -22,6 +22,6 @@ public interface GradoDao {
 
     public void eliminar(Grado g);
     
-    public Grado BuscarID(int id);
+    public Grado BuscarID(Integer id);
 
 }

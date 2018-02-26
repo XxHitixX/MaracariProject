@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Ana Sofia
  */
-public interface GradoAlumnoDao {
+public interface AlumnoGradoDao {
     
     public List<Alumnogrado> BuscarTodos();
     
