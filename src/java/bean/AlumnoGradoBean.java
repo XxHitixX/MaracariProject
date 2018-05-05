@@ -28,13 +28,20 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class AlumnoGradoBean implements Serializable{
 
-    /**
-     * Creates a new instance of AlumnoGradoBean
-     */
+    /*Estas variables son requeridas por los metodos principales de la aplicacion 
+    lo CRUD y BuscarTodos()
+    */
     private List<Alumnogrado> lista;
     private Alumnogrado alumnogrado;
     private Integer IDAlumno;
     private Integer IDGrado;
+    
+    
+    /*
+    Estas variables que vienen a continuacion son para la cosulta de los estudiantes por grado 
+    y son otra operacion utilziacion el mismo Bean
+    */
+    private List<Alumnogrado> estudiantesPre;
     
     public AlumnoGradoBean() {
         this.alumnogrado = new Alumnogrado();
@@ -73,6 +80,18 @@ public class AlumnoGradoBean implements Serializable{
     public void setIDGrado(Integer IDGrado) {
         this.IDGrado = IDGrado;
     }
+
+    public List<Alumnogrado> getEstudiantesPre() {
+        AlumnoGradoDao agDao = new AlumnoGradoDaoImp();
+        estudiantesPre = agDao.listaAlumnoGrado();
+        return estudiantesPre;
+    }
+
+    public void setEstudiantesPre(List<Alumnogrado> estudiantesPre) {
+        this.estudiantesPre = estudiantesPre;
+    }
+    
+    
     
     public void insertar(){
         Calendar anio = Calendar.getInstance();

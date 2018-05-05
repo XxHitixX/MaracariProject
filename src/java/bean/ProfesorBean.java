@@ -11,11 +11,9 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import com.pojo.Profesor;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 
 /**
  *
@@ -30,9 +28,7 @@ public class ProfesorBean implements Serializable {
      */
     private List<Profesor> lista;
     private Profesor profesor;
-    private String codPais;
-    private String codCiudad;
-    private List<String> lstCiudad = new ArrayList<String>();
+    
 
     public ProfesorBean() {
         this.profesor = new Profesor();
@@ -57,30 +53,6 @@ public class ProfesorBean implements Serializable {
 
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
-    }
-
-    public String getCodPais() {
-        return codPais;
-    }
-
-    public void setCodPais(String codPais) {
-        this.codPais = codPais;
-    }
-
-    public String getCodCiudad() {
-        return codCiudad;
-    }
-
-    public void setCodCiudad(String codCiudad) {
-        this.codCiudad = codCiudad;
-    }
-
-    public List<String> getLstCiudad() {
-        return lstCiudad;
-    }
-
-    public void setLstCiudad(List<String> lstCiudad) {
-        this.lstCiudad = lstCiudad;
     }
     
     
@@ -136,7 +108,7 @@ public class ProfesorBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect("/Maracari/faces/vistas/profesor/index.xhtml");
     }
     
-    public void cargarCiudades(AjaxBehaviorEvent event){
+  /*  public void cargarCiudades(AjaxBehaviorEvent event){
         switch(codPais){
         
             case "1":
@@ -170,5 +142,5 @@ public class ProfesorBean implements Serializable {
         
         }
     }
-
+*/
 }

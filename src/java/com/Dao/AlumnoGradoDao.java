@@ -22,4 +22,6 @@ public interface AlumnoGradoDao {
     
     public void elimiar(Alumnogrado a);
     
+    public List<Alumnogrado> listaAlumnoGrado();
+    
 }

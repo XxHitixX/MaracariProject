@@ -11,6 +11,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.Dao.AlumnoGradoDao;
+import java.util.Calendar;
+import org.hibernate.Query;
 
 /**
  *
@@ -29,7 +31,7 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
             lista = sesion.createQuery(hql).list();
             t.commit();
         } catch (Exception e) {
-             t.rollback();
+            t.rollback();
         }
         return lista;
     }
@@ -50,7 +52,7 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
 
     @Override
     public void editar(Alumnogrado a) {
-       Session session = null;
+        Session session = null;
 
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -74,6 +76,25 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
         } catch (Exception e) {
             session.getTransaction().rollback();
         }
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGrado() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 1 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
     }
 
 }
