@@ -9,6 +9,7 @@ import com.Dao.MateriaProfesorDao;
 import com.Util.HibernateUtil;
 import com.pojo.Materiaprofesor;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -74,6 +75,15 @@ public class MateriaProfesorDaoImp implements MateriaProfesorDao {
         } catch (Exception e) {
             session.getTransaction().rollback();
         }
+    }
+    
+    public Materiaprofesor BuscarMateriaProfesor(int idmateriaprofesor){
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    String hql = "from Materiaprofesor where id = :idmateriaprofesor";
+    Query q = session.createQuery(hql);
+    q.setParameter("idmateriaprofesor", idmateriaprofesor);
+    
+    return (Materiaprofesor) q.uniqueResult();
     }
 
 }

@@ -96,5 +96,14 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
 
         return lista;
     }
+    
+    public Alumnogrado BuscarAlumnoGrado(int idalumnogrado){
+        String hql = "from Alumnogrado where id = :idalumnogrado"; 
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query q = session.createQuery(hql);
+        q.setParameter("idalumnogrado", idalumnogrado);
+        
+        return (Alumnogrado) q.uniqueResult();
+    }
 
 }

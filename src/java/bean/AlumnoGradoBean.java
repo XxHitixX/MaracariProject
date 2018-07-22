@@ -8,15 +8,18 @@ package bean;
 import com.Dao.AlumnoDao;
 import com.Dao.AlumnoGradoDao;
 import com.Dao.GradoDao;
+import com.Dao.MateriaProfesorDao;
 import com.DaoImp.AlumnoDaoImp;
 import com.DaoImp.AlumnoGradoDaoImp;
 import com.DaoImp.GradoDaoImp;
+import com.DaoImp.MateriaProfesorDaoImp;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import com.pojo.Alumnogrado;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -35,6 +38,11 @@ public class AlumnoGradoBean implements Serializable{
     private Alumnogrado alumnogrado;
     private Integer IDAlumno;
     private Integer IDGrado;
+    
+    //Aqui va lo de alumnogrado la parte derecha de la base de datos 
+    private Integer IdMateriaProfesor;
+    private Integer IdAlumnoGrado;
+  
     
     
     /*
@@ -90,9 +98,26 @@ public class AlumnoGradoBean implements Serializable{
     public void setEstudiantesPre(List<Alumnogrado> estudiantesPre) {
         this.estudiantesPre = estudiantesPre;
     }
+
+    public Integer getIdMateriaProfesor() {
+        return IdMateriaProfesor;
+    }
+
+    public void setIdMateriaProfesor(Integer IdMateriaProfesor) {
+        this.IdMateriaProfesor = IdMateriaProfesor;
+    }
+
+    public Integer getIdAlumnoGrado() {
+        return IdAlumnoGrado;
+    }
+
+    public void setIdAlumnoGrado(Integer IdAlumnoGrado) {
+        this.IdAlumnoGrado = IdAlumnoGrado;
+    }
+
     
     
-    
+    //Asignacion de alumnos a grados
     public void insertar(){
         Calendar anio = Calendar.getInstance();
         Integer y = anio.get(Calendar.YEAR);
@@ -115,4 +140,22 @@ public class AlumnoGradoBean implements Serializable{
         
     }
     
+    /*
+    @param idalumnogrado
+    * 
+    METODO PARA BUSCAR EL IDMATERIAPROFESOR Y IDALUMNOGRADO
+    
+    
+    public void gestion(){
+        //Hago la implementacion de la interface AlumnogradoDao
+        AlumnoGradoDao agDao = new AlumnoGradoDaoImp();
+        //Hago la implementacion de la interface MateriaProfesor
+       // MateriaProfesorDao mpDao = new MateriaProfesorDaoImp();
+        
+        this.alumnogrado =  agDao.BuscarAlumnoGrado(this.IdAlumnoGrado);
+        
+        System.out.println("Este es el ID de l alumnogrado" + this.alumnogrado.getId());
+        System.out.println(" Este es el año" + this.alumnogrado.getAno());
+    }
+    */
 }

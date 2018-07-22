@@ -21,4 +21,6 @@ public interface MateriaProfesorDao {
     public void editar(Materiaprofesor m);
     
     public void eliminar(Materiaprofesor m);
+    
+    public Materiaprofesor BuscarMateriaProfesor(int idmateriaprofesor);
 }
