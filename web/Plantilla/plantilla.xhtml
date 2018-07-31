@@ -30,22 +30,24 @@
         <!--close-top-Header-messaages--> 
 
         <!--top-Header-menu-->
-        <div id="user-nav" class="navbar navbar-inverse">
-            <ul class="nav">
-                <li class="" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Perfil</span></a></li>
-                <!--  <li class=" dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                          <li><a class="sAdd" title="" href="#">new message</a></li>
-                          <li><a class="sInbox" title="" href="#">inbox</a></li>
-                          <li><a class="sOutbox" title="" href="#">outbox</a></li>
-                          <li><a class="sTrash" title="" href="#">trash</a></li>
-                      </ul>
-                  </li>
-                  <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>-->
-                <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-            </ul>
-        </div>
+        <h:form>
+            <div id="user-nav" class="navbar navbar-inverse">
+                <ul class="nav">
+                    <li class="" ><h:link value="#{userLoginView.usuario.nombreUsuario}"></h:link></li>
+                    <!--  <li class=" dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a class="sAdd" title="" href="#">new message</a></li>
+                              <li><a class="sInbox" title="" href="#">inbox</a></li>
+                              <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                              <li><a class="sTrash" title="" href="#">trash</a></li>
+                          </ul>
+                      </li>
+                      <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>-->
 
+                    <li class=""><h:commandLink action="#{userLoginView.cerrarSession()}"><i class="icon icon-share-alt"></i><span class="text">Salir</span> </h:commandLink></li>
+                </ul>
+            </div>
+        </h:form>
         <!--close-top-Header-menu-->
         <div id="sidebar"><h:link outcome="/index" class="visible-phone"><i class="icon icon-home"></i> Dashboard</h:link><ul>
                 <li class="active"><h:link outcome="/index"><i class="icon icon-home"></i> <span>Inicio</span></h:link> </li>
@@ -129,40 +131,40 @@
         <h:outputScript name="/js/jquery.peity.min.js"/>
         <h:outputScript name="/js/fullcalendar.min.js"/>
 
-<!--
-
-       <script type="text/javascript">
-            // This function is called from the pop-up menus to transfer to
-            // a different page. Ignore if the value returned is a null string:
-            $(document).ready(function () {
-                $('#tbl').da();
-            });  
-            
-
-            function goPage(newURL) {
-
-                // if url is empty, skip the menu dividers and reset the menu selection to default
-                if (newURL != "") {
-
-                    // if url is "-", it is this page  reset the menu:
-                    if (newURL == "-") {
-                        resetMenu();
+        <!--
+        
+               <script type="text/javascript">
+                    // This function is called from the pop-up menus to transfer to
+                    // a different page. Ignore if the value returned is a null string:
+                    $(document).ready(function () {
+                        $('#tbl').da();
+                    });  
+                    
+        
+                    function goPage(newURL) {
+        
+                        // if url is empty, skip the menu dividers and reset the menu selection to default
+                        if (newURL != "") {
+        
+                            // if url is "-", it is this page  reset the menu:
+                            if (newURL == "-") {
+                                resetMenu();
+                            }
+                            // else, send page to designated URL            
+                            else {
+                                document.location.href = newURL;
+                            }
+                        }
                     }
-                    // else, send page to designated URL            
-                    else {
-                        document.location.href = newURL;
+        
+                    // resets the menu selection upon entry to this page:
+                    function resetMenu() {
+                        document.gomenu.selector.selectedIndex = 2;
                     }
-                }
-            }
-
-            // resets the menu selection upon entry to this page:
-            function resetMenu() {
-                document.gomenu.selector.selectedIndex = 2;
-            }
-
-
-        </script>
--->
+        
+        
+                </script>
+        -->
     </h:body>
 
 

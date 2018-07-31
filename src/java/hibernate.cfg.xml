@@ -51,6 +51,7 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">jta</property>
     <mapping resource="com/pojo/Materia.hbm.xml"/>
     <mapping resource="com/pojo/Notas.hbm.xml"/>
+    <mapping resource="com/pojo/Usuario.hbm.xml"/>
     <mapping resource="com/pojo/Alumnogrado.hbm.xml"/>
     <mapping resource="com/pojo/Alumno.hbm.xml"/>
     <mapping resource="com/pojo/Materiaprofesor.hbm.xml"/>

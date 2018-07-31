@@ -1,5 +1,5 @@
 package com.pojo;
-// Generated 12/01/2018 12:21:09 PM by Hibernate Tools 4.3.1
+// Generated 25/07/2018 05:46:21 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -21,11 +21,12 @@ public class Profesor  implements java.io.Serializable {
      private String telefono;
      private String email;
      private Set materiaprofesors = new HashSet(0);
+     private Set usuarios = new HashSet(0);
 
     public Profesor() {
     }
 
-    public Profesor(String nombre, String apellido, String fechan, String departamento, String ciudad, String direccion, String telefono, String email, Set materiaprofesors) {
+    public Profesor(String nombre, String apellido, String fechan, String departamento, String ciudad, String direccion, String telefono, String email, Set materiaprofesors, Set usuarios) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.fechan = fechan;
@@ -35,6 +36,7 @@ public class Profesor  implements java.io.Serializable {
        this.telefono = telefono;
        this.email = email;
        this.materiaprofesors = materiaprofesors;
+       this.usuarios = usuarios;
     }
    
     public Integer getId() {
@@ -106,6 +108,13 @@ public class Profesor  implements java.io.Serializable {
     
     public void setMateriaprofesors(Set materiaprofesors) {
         this.materiaprofesors = materiaprofesors;
+    }
+    public Set getUsuarios() {
+        return this.usuarios;
+    }
+    
+    public void setUsuarios(Set usuarios) {
+        this.usuarios = usuarios;
     }
 
 

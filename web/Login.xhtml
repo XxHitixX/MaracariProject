@@ -2,53 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <h:outputStylesheet name="/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="/css/mio.css"/>
         <title>INGRESO AL SISTEMA</title>
     </h:head>
     <h:body>
+        <div style="margin-left: auto; margin-right: auto; width: 350px; margin-top: 20%">
+            <h:form id="formLogin">            
+                <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
-        <div class="container">
-            <legend>Acceso al sistema</legend>
-            <div class="row-fluid">
-                <div class="span8 offset3">
-                    <h:form class="form-horizontal">
+                <p:panel header="INGRESO AL SISTEMA" widgetVar="dlg" class="thumbnails">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="username" value="Username:" />
+                        <h:inputText id="username" value="#{userLoginView.usuario.nombreUsuario}" required="true" label="username"  class="input-prepend"/>
 
-                        <div class="control-group">
-                            <h:outputLabel class="control-label" value="Usuario"/>
-                            <div class="controls">
-                                <div class="input-prepend">
-                                    <span class="add-on">
-                                        <i class="icon-user"></i>
-                                    </span>
-                                    <h:inputText a:placeHolder="Nombre de usuario"/>
-                                </div>
-                            </div>
-                        </div>
+                        <h:outputLabel for="password" value="Password:" />
+                        <h:inputSecret id="password" value="#{userLoginView.usuario.clave}" required="true" label="password"  class="input-prepend"/>
 
-                        <div class="control-group">
-                            <h:outputLabel class="control-label" value="Contraseña"/>
-                            <div class="controls">
-                                <div class="input-prepend">
-                                    <span class="add-on">
-                                        <i class="icon-lock"></i>
-                                    </span>
-                                    <h:inputSecret a:placeHolder="Contraseña"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="control-group" align="center">
-                            <h:commandButton value="ENTRAR" class="btn btn-primary btn-block"/>
-                        </div>
-                    </h:form>
-                </div>
-
-            </div>
+                        <f:facet name="footer">
+                            <p:commandButton value="Login" update="formLogin" class="btn btn-primary" actionListener="#{userLoginView.login(event)}"
+                                             oncomplete="handleLoginRequest(xhr, status, args)" />
+                        </f:facet>  
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
         </div>
+        <script type="text/javascript">
+            function handleLoginRequest(xhr, status, args) {
+                if (args.validationFailed || !args.loggedIn) {
+                    jQuery('#formLogin').effect("shake", {times: 8}, 300);
+                } else {
+                    location.href = args.ruta;
+                }
+            }
+        </script>
 
-        <h:outputScript name="/js/bootstrap.min.js"/>
+
     </h:body>
 </html>
 
