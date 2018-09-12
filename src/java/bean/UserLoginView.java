@@ -100,7 +100,7 @@ public class UserLoginView implements Serializable{
         
         HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         httpSession.invalidate();//Borro la session
-        return "/Login.xhtml";
+        return "/Login";
     }
     
 }

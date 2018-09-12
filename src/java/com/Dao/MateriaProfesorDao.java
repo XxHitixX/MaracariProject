@@ -23,4 +23,6 @@ public interface MateriaProfesorDao {
     public void eliminar(Materiaprofesor m);
     
     public Materiaprofesor BuscarMateriaProfesor(int idmateriaprofesor);
+    
+    public Materiaprofesor buscarProfesorXid(int idProfesor);
 }

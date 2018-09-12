@@ -5,9 +5,9 @@
  */
 package com.DaoImp;
 
-import com.Dao.MateriaProfesorDao;
+import com.Dao.NotasDao;
 import com.Util.HibernateUtil;
-import com.pojo.Materiaprofesor;
+import com.pojo.Notas;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,82 +17,73 @@ import org.hibernate.Transaction;
  *
  * @author Ana Sofia
  */
-public class MateriaProfesorDaoImp implements MateriaProfesorDao {
+public class NotasDaoImp implements NotasDao{
 
     @Override
-    public List<Materiaprofesor> BuscarTodos() {
+    public List<Notas> buscarnotas() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Materiaprofesor> lista = null;
+        String hql = "from * Notas";
+        List<Notas> lista = null;
         Transaction t = session.beginTransaction();
-        String hql = "FROM Materiaprofesor";
-
+        
         try {
             lista = session.createQuery(hql).list();
             t.commit();
         } catch (Exception e) {
             t.rollback();
         }
+        
         return lista;
     }
 
     @Override
-    public void insertar(Materiaprofesor m) {
-        Session session = null;
-
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.getTransaction().begin();
-            session.save(m);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
-    }
-
-    @Override
-    public void editar(Materiaprofesor m) {
-       Session session = null;
-
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.getTransaction().begin();
-            session.update(m);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
-    }
-
-    @Override
-    public void eliminar(Materiaprofesor m) {
-        Session session = null;
-
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.getTransaction().begin();
-            session.delete(m);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
-    }
-    
-    public Materiaprofesor BuscarMateriaProfesor(int idmateriaprofesor){
-    Session session = HibernateUtil.getSessionFactory().openSession();
-    String hql = "from Materiaprofesor where id = :idmateriaprofesor";
-    Query q = session.createQuery(hql);
-    q.setParameter("idmateriaprofesor", idmateriaprofesor);
-    
-    return (Materiaprofesor) q.uniqueResult();
-    }
-    
-    public Materiaprofesor buscarProfesorXid(int idProfesor){
+    public void crear(Notas n) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String hql = "from Materiaprofesor where idprofesor = :idProfesor";
-        Query q = session.createQuery(hql);
-        q.setParameter("idProfesor", idProfesor);
         
-        return (Materiaprofesor) q.uniqueResult();
+        try {
+            session.getTransaction().begin();
+            session.save(n);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
     }
 
+    @Override
+    public void actualizar(Notas n) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        try {
+            session.getTransaction().begin();
+            session.update(n);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
+    }
+
+    @Override
+    public void eliminar(Notas n) {
+      Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        try {
+            session.getTransaction().begin();
+            session.delete(n);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
+    }
+
+    @Override
+    public Notas BuscarNotaxIDAlumnno(Integer idAlumno) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "FROM Notas WHERE idalumnogrado = :idAlumno";
+        Query q = session.createQuery(hql);
+        q.setParameter("idAlumno", idAlumno);
+        
+        return (Notas) q.uniqueResult();
+    }
+
+    
 }
