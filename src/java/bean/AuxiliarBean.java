@@ -20,6 +20,9 @@ import javax.inject.Inject;
 import com.pojo.Notas;
 import com.Dao.NotasDao;
 import com.DaoImp.NotasDaoImp;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
@@ -42,11 +45,6 @@ public class AuxiliarBean implements Serializable {
     private Materiaprofesor materiaprofesor;
     private Notas notas;
     
-    String nota1=""; 
-    String nota2=""; 
-    String nota3=""; 
-    String nota4="";
-
     @Inject
     private UserLoginView userlogin;
 
@@ -110,6 +108,13 @@ public class AuxiliarBean implements Serializable {
      * METODO PARA BUSCAR EL IDMATERIAPROFESOR Y IDALUMNOGRADO
      */
     public void gestion() {
+        
+        
+        //Variable para sacar el calendario para obtener el año
+        Calendar c = Calendar.getInstance();
+        int ano = c.get(Calendar.YEAR);
+        
+        
         //Hago la implementacion de la interface AlumnogradoDao
         AlumnoGradoDao agDao = new AlumnoGradoDaoImp();
         //Hago la implementacion de la interface MateriaProfesor
@@ -121,22 +126,69 @@ public class AuxiliarBean implements Serializable {
         this.alumnogrado = agDao.BuscarAlumnoGrado(this.IdAlumnoGrado);
         this.materiaprofesor = mpDao.buscarProfesorXid(this.userlogin.getUsuario().getProfesor().getId());
         this.notas = nDao.BuscarNotaxIDAlumnno(IdAlumnoGrado);
+        
+        //VAriable para recibir el estado del estudiante
+        String estado = comprobarEstado(this.notas);
+        
+        //Variable apra recibir la definitiva del estudiante
+        String definitiva = comprobarDefinitiva(this.notas);
 
-        this.notas.setAno("2018");
-        this.notas.setEstado("REPROBADO");
+        this.notas.setAno(""+ano);
+        this.notas.setEstado(estado);
         this.notas.setAlumnogrado(this.alumnogrado);
         this.notas.setMateriaprofesor(this.materiaprofesor);
-        this.notas.setDefinitiva("2");
+        this.notas.setDefinitiva(definitiva);
         /* System.out.println("Este es el materia profesor: " + this.materiaprofesor.getMateria().getNombre()
        + "asignadoa al profesor: " + this.materiaprofesor.getProfesor().getNombre());
        // System.out.println(" Este es el año: " + this.alumnogrado.getAno());*/
     }
 
+    /**
+     * Metodo que guarda las modificaciones realizadas en UpdateNotas
+     * @return ruta
+     */
     public String salvarNota() {
-        //NotasDao nDao = new NotasDaoImp();
-        //nDao.actualizar(this.notas);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nota", this.nota1));
-        return "/Maracari/faces/vistas/notas/preescolar";
+        NotasDao nDao = new NotasDaoImp();
+        nDao.actualizar(this.notas);
+        return "/vistas/notas/preescolar/preescolar";
     }
-
+    
+    
+    /**
+     *@param nota
+     * @return estado
+     * Este metodo devuelve un String con el estado actual, si el estado es menor que 6.9, devolverá reprobado
+     * 
+     */
+    public String comprobarEstado(Notas nota){
+        String estado = null;
+        double resultado = Double.parseDouble(nota.getPeriodoi()) + Double.parseDouble(nota.getPeriodoii()) + 
+                Double.parseDouble(nota.getPeriodoiii()) + Double.parseDouble(nota.getPeriodoiv());
+        resultado = resultado / 4;
+        
+        if(resultado <= 5.9){
+            estado = "REPROBADO";
+        }else{
+            estado = "APROBADO";
+        }
+        return estado;
+    }
+    
+     /**
+     *@param nota
+     * @return estado
+     * Este metodo devuelve un String con la nota definitiva del estudiante
+     * 
+     */
+    public String comprobarDefinitiva(Notas nota){
+        String definitiva = null;
+        double resultado = Double.parseDouble(nota.getPeriodoi()) + Double.parseDouble(nota.getPeriodoii()) + 
+                Double.parseDouble(nota.getPeriodoiii()) + Double.parseDouble(nota.getPeriodoiv());
+        
+        resultado = resultado / 4;
+        definitiva = "" +resultado;
+        
+      
+        return definitiva;
+    }
 }

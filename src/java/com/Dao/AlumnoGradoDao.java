@@ -24,6 +24,8 @@ public interface AlumnoGradoDao {
     
     public List<Alumnogrado> listaAlumnoGrado();
     
+    public List<Alumnogrado> listaAlumnoGradoPrimero();
+    
     public Alumnogrado BuscarAlumnoGrado(int idalumnogrado);
     
 }

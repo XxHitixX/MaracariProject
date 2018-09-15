@@ -50,6 +50,7 @@ public class AlumnoGradoBean implements Serializable{
     y son otra operacion utilziacion el mismo Bean
     */
     private List<Alumnogrado> estudiantesPre;
+    private List<Alumnogrado> estudiantesPri;
     
     public AlumnoGradoBean() {
         this.alumnogrado = new Alumnogrado();
@@ -98,6 +99,18 @@ public class AlumnoGradoBean implements Serializable{
     public void setEstudiantesPre(List<Alumnogrado> estudiantesPre) {
         this.estudiantesPre = estudiantesPre;
     }
+
+    public List<Alumnogrado> getEstudiantesPri() {
+        AlumnoGradoDao agDao = new AlumnoGradoDaoImp();
+        estudiantesPri = agDao.listaAlumnoGradoPrimero();
+        return estudiantesPri;
+    }
+
+    public void setEstudiantesPri(List<Alumnogrado> estudiantesPri) {
+        this.estudiantesPri = estudiantesPri;
+    }
+    
+    
 
     public Integer getIdMateriaProfesor() {
         return IdMateriaProfesor;

@@ -22,36 +22,26 @@
                 <h:form>
                     <div class="row-fluid">
                         <div class="span7">
-                            <h:dataTable value="#{gradoBean.lista}" var="t" class="table table-striped table-hover">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="ID"/>
-                                    </f:facet>
-                                    <div align="center">#{t.id}</div>  
-                                </h:column> 
+                            <h:panelGrid columns="2" class="table table-striped table-hover">
+                                <h:outputText value="CURSOS" class="label"/>
                                 
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="GRADO"/>
-                                    </f:facet>
-                                    <div align="center"> #{t.nombre}</div> 
-                                </h:column>
+                                <h:outputText value="ACCION" class="label"/>
                                 
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="ACIONES"/>
-                                    </f:facet>
-                                    <div align="center">
-                                        <h:link outcome="preescolar/preescolar" value="CALIFICAR" class="btn btn-info"/></div> 
-                                </h:column>
-                            </h:dataTable> 
+                                                               
+                                <h:outputText value="PREESCOLAR"/>
+                                <h:link outcome="preescolar/preescolar" value="CALIFICAR" class="btn btn-info"/>
+
+                                <h:outputText value="PRIMERO"/>
+                                <h:link outcome="primero/primero" value="CALIFICAR" class="btn btn-info"/>
+
+                            </h:panelGrid> 
                         </div>
                         <div class="span5">
                             <img src="../../resources/images/calificaciones.png" alt=""/>
                         </div>
                     </div>
                 </h:form>
-               
+
             </ui:define>
 
         </ui:composition>

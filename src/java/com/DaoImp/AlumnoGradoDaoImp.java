@@ -97,6 +97,24 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
         return lista;
     }
     
+     public List<Alumnogrado> listaAlumnoGradoPrimero() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 2 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+    
     public Alumnogrado BuscarAlumnoGrado(int idalumnogrado){
         String hql = "from Alumnogrado where id = :idalumnogrado"; 
         Session session = HibernateUtil.getSessionFactory().openSession();
