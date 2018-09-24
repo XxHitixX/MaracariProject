@@ -124,4 +124,194 @@ public class AlumnoGradoDaoImp implements AlumnoGradoDao {
         return (Alumnogrado) q.uniqueResult();
     }
 
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoSegundo() {
+         Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 3 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoTercero() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 4 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoCuarto() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 5 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoQuinto() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 6 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoSexto() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 7 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoSeptimo() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 8 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoOctavo() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 9 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoNoveno() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 10 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoDecimo() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 11 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Alumnogrado> listaAlumnoGradoOnce() {
+        Calendar anio = Calendar.getInstance();
+        Integer y = anio.get(Calendar.YEAR);
+        List<Alumnogrado> lista = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        String hql = "FROM Alumnogrado WHERE idgrado = 12 AND ano ="+ y +"";
+        
+        try{
+            lista = session.createQuery(hql).list();
+            t.commit();
+        }catch(Exception e){
+            t.rollback();
+        }
+
+        return lista;
+    }
+
 }

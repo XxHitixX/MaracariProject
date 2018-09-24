@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../../Plantilla/plantilla.xhtml">
+
+            <ui:define name="Titulo">
+                ACTUALIZAR LAS NOTAS DE <h:outputText value="#{auxiliarBean.alumnogrado.alumno.nombre} #{auxiliarBean.alumnogrado.alumno.apellido}"/>
+            </ui:define>
+
+            <ui:define name="BotonVariable">
+                <h:commandButton class="btn btn-small btn-success" value="CANCELAR" onclick="history.back(-2)"/>
+            </ui:define>
+
+            <ui:define name="Contenido">
+                <h:form>
+                    <f:metadata>
+                        <f:viewParam name="idmateriaprofesor" value="#{auxiliarBean.idMateriaProfesor}"/>
+                        <f:viewParam name="idalumnogrado" value="#{auxiliarBean.idAlumnoGrado}"/>
+                    </f:metadata>
+                    <!-- Esta instruccion me permite ejecutar un metodo sin cargar el xhtml -->
+                    <f:event listener="#{auxiliarBean.gestion()}" type="preRenderView"/>
+                    <div class="row-fluid" align="center">
+                        <p:panelGrid columns="8">
+                            <h:outputText value="Grado"/>
+                            <h:outputText value="#{auxiliarBean.alumnogrado.grado.valor}"/>
+                            <h:outputText value="Materia "/>
+                            <h:outputText value="#{auxiliarBean.materiaprofesor.materia.nombre}"/>
+                            <h:outputText value="Nota Definitiva"/>
+                            <h:outputText value="#{auxiliarBean.notas.definitiva}"/>
+                            <h:outputText value="Estado"/>
+                            <h:outputText value="#{auxiliarBean.notas.estado}"/>
+                            
+                        </p:panelGrid>
+                    </div>
+                    <div class="row-fluid">
+                       
+                        <div class="span8">
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="1er PERIODO"/>
+                                    <div class="controls">
+                                        <h:inputText id="nota1" class="span8"  value="#{auxiliarBean.notas.periodoi}">
+                                            <f:validateDoubleRange minimum="0.0" maximum="10.0"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="2do PERIODO"/>
+                                    <div class="controls">
+                                        <h:inputText id="nota2" class="span8" value="#{auxiliarBean.notas.periodoii}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                            <f:validateDoubleRange minimum="0.0" maximum="10.0"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="3er PERIODO"/>
+                                    <div class="controls">
+                                        <h:inputText id="nota3" class="span8" value="#{auxiliarBean.notas.periodoiii}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                            <f:validateDoubleRange minimum="0.0" maximum="10.0"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="form-horizontal">
+                                <div class="control-group">
+                                    <h:outputLabel class="control-label" value="4to PERIODO"/>
+                                    <div class="controls">
+                                        <h:inputText  id="nota4" class="span8"  value="#{auxiliarBean.notas.periodoiv}"
+                                                     onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                            <f:validateDoubleRange minimum="0.0" maximum="10.0"/>
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="form-actions">
+                                <div class="control-group" align="center">
+                                    <h:commandButton value="GUARDAR" class="btn btn-info btn-large" action="#{auxiliarBean.salvarNota()}"/>                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="span4">
+                            <img src="../../../resources/images/logonota.png" alt=""/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

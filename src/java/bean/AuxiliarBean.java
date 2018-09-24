@@ -132,7 +132,7 @@ public class AuxiliarBean implements Serializable {
         
         //Variable apra recibir la definitiva del estudiante
         String definitiva = comprobarDefinitiva(this.notas);
-
+        
         this.notas.setAno(""+ano);
         this.notas.setEstado(estado);
         this.notas.setAlumnogrado(this.alumnogrado);
@@ -150,7 +150,7 @@ public class AuxiliarBean implements Serializable {
     public String salvarNota() {
         NotasDao nDao = new NotasDaoImp();
         nDao.actualizar(this.notas);
-        return "/vistas/notas/preescolar/preescolar";
+        return "/vistas/notas/";
     }
     
     

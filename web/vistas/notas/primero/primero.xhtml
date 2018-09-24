@@ -15,7 +15,7 @@
             </ui:define>
 
             <ui:define name="BotonVariable">
-                <h:link class="btn btn-mini btn-success" value="ACTUALIZAR"/>
+                <h:link class="btn btn-mini btn-success" value="ACTUALIZAR" onclick="location.reload();"/>
             </ui:define>
 
             <ui:define name="Contenido">
@@ -42,7 +42,7 @@
                                         <h:outputText value="ACCION"/>
                                     </f:facet>
                                     <div align="center"><h:link value="CALIFICAR" class="btn btn-mini btn-warning" outcome="updateNotas">
-                                            <f:param name="idmateriaprofesor" value="1"/>
+                                            <f:param name="idmateriaprofesor" value="#{auxiliarBean.userlogin.usuario.id}"/>
                                             <f:param name="idalumnogrado" value="#{t.id}"/>
                                             
                                         </h:link>

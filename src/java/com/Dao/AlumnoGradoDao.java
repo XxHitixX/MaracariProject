@@ -26,6 +26,26 @@ public interface AlumnoGradoDao {
     
     public List<Alumnogrado> listaAlumnoGradoPrimero();
     
+    public List<Alumnogrado> listaAlumnoGradoSegundo();
+    
+    public List<Alumnogrado> listaAlumnoGradoTercero();
+    
+    public List<Alumnogrado> listaAlumnoGradoCuarto();
+    
+    public List<Alumnogrado> listaAlumnoGradoQuinto();
+    
+    public List<Alumnogrado> listaAlumnoGradoSexto();
+    
+    public List<Alumnogrado> listaAlumnoGradoSeptimo();
+    
+    public List<Alumnogrado> listaAlumnoGradoOctavo();
+    
+    public List<Alumnogrado> listaAlumnoGradoNoveno();
+    
+    public List<Alumnogrado> listaAlumnoGradoDecimo();
+    
+    public List<Alumnogrado> listaAlumnoGradoOnce();
+    
     public Alumnogrado BuscarAlumnoGrado(int idalumnogrado);
     
 }
